@@ -1,0 +1,42 @@
+/* 
+  Localized.strings
+  iTechBook
+
+  Created by Neestackich on 27.01.21.
+  
+ EN
+*/
+
+"inLibraryState" = "In Library";
+"pickedUpState" = "Picked Up";
+"reservedState" = "Reserved";
+"libraryLabel" = "Library";
+"accountLabel" = "Account";
+"errorTitle" = "Error";
+"okButton" = "Ok";
+"Show account" = "Show account";
+
+// Backend errors
+
+"incorrectEmailPassword" = "Incorrect email or password entered";
+"invalidEmailPassword" = "Invalid email or password entered. Possibly this email already reqistered";
+"incorrectCredentials" = "Incorrect credentials";
+"unauthorizedAccess" = "Unauthorized access";
+"unknownBackendError" = "Unknown error";
+
+
+// Network errors
+
+"noConnection" = "Cannot connect to network";
+"longResponse" = "Too long response waiting. Please try later";
+"invalidUrl" = "Unable to create request by given url. Please try later";
+"unknownNetworkError" = "Cannot get response because of unknown error. Please try later";
+"unableToCreateUrl" = "Cannot make request by given url adress";
+
+
+// Database errors
+
+"databaseError" = "Database error. Please try later";
+"databaseOpenError" = "Error while opening database. Please try later";
+"databaseSaveError" = "Error while saving to database. Please try later";
+"unknownDatabaseError" = "Unknown database error. Please try later";

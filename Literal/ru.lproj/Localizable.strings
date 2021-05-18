@@ -1,0 +1,43 @@
+/* 
+  Localized.strings
+  iTechBook
+
+  Created by Neestackich on 27.01.21.
+  
+ RU
+*/
+
+"inLibraryState" = "В библиотеке";
+"pickedUpState" = "Нет в наличии";
+"reservedState" = "Зарезервирована";
+"libraryLabel" = "Библиотека";
+"accountLabel" = "Аккаунт";
+"errorTitle" = "Ошибка";
+"okButton" = "Ок";
+"Add book" = "Добавить книгу";
+"Show account" = "Показать аккаунт";
+
+// Backend errors
+
+"incorrectEmailPassword" = "Неверный имейл или пароль";
+"invalidEmailPassword" = "Неправильный имейл или пароль. Возможно, такой пользователь уже существует";
+"incorrectCredentials" = "Неверный имейл или пароль";
+"unauthorizedAccess" = "Неавторизированный доступ";
+"unknownBackendError" = "Неизвестная ошибка при получении данных с сервера. Пожалуйста, попробуйте позже";
+
+
+// Network errors
+
+"noConnection" = "Нет подключения к сети";
+"longResponse" = "Слишком долгое ожидание запроса в сеть. Пожалуйста, попробуйте позже";
+"invalidUrl" = "Невозможно совершить запрос по данному адресу. Пожалуйста, попробуйте позже";
+"unknownNetworkError" = "Невозможно совершить запрос из-за неизвестной ошибки. Пожалуйста, попробуйте позже";
+"unableToCreateUrl" = "Невозможно сделать запрос по данному адресу";
+
+
+// Database errors
+
+"databaseError" = "Ошибка базы данных. Пожалуйста, попробуйте позже";
+"databaseOpenError" = "Ошибка во время открытия базы данных. Пожалуйста, попробуйте позже";
+"databaseSaveError" = "Ошибка во время сохранения в базу данных. Пожалуйста, попробуйте позже";
+"unknownDatabaseError" = "Неизвестная ошибка базы данных. Пожалуйста, попробуйте позже";

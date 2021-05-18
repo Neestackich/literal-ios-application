@@ -1,0 +1,20 @@
+
+/* Class = "UILabel"; text = "Book name"; ObjectID = "5Gn-rB-yxS"; */
+"7NI-Wu-HGZ.text" = "Название книги";
+
+/* Class = "UIButton"; normalTitle = "Log Out"; ObjectID = "Eq5-oa-OPt"; */
+"Lho-vZ-Zds.normalTitle" = "Выйти";
+
+/* Class = "UILabel"; text = "Status"; ObjectID = "L7M-t2-YPh"; */
+"7Yk-zh-L7x.text" = "Статус";
+
+/* Class = "UILabel"; text = "Reading Now"; ObjectID = "PT2-hb-J9w"; */
+"oom-F8-PHl.text" = "Читаю сейчас";
+
+/* Class = "UILabel"; text = "Account"; ObjectID = "Vv9-uS-Syo"; */
+"5om-mh-hPs.text" = "Аккаунт";
+
+/* Class = "UILabel"; text = "Unknown author"; ObjectID = "zce-DL-OZJ"; */
+"XZz-66-HlO.text" = "Неизвестный автор";
+
+"ISn-bN-q96.text" = "К сожалению здесь нет ни одной книги. Нажмите + в разделе Библиотека, чтобы добавить одну";

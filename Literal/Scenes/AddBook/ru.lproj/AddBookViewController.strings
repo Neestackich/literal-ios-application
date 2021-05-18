@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "IY0-Sa-pie"; */
+"L5r-Md-YCK.normalTitle" = "Готово";
+
+/* Class = "UITextField"; placeholder = "book author"; ObjectID = "J7p-kV-XXm"; */
+"RMv-Ja-sIE.placeholder" = "автор книги";
+
+/* Class = "UILabel"; text = "Add Book"; ObjectID = "cHn-Xq-ETF"; */
+"x5J-yU-iBB.text" = "Добавить книгу";
+
+/* Class = "UITextField"; placeholder = "book name"; ObjectID = "snz-oZ-9xT"; */
+"wuN-Ip-Nh9.placeholder" = "название книги";

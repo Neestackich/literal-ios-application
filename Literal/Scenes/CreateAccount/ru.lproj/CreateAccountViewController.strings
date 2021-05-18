@@ -1,0 +1,15 @@
+
+/* Class = "UIButton"; normalTitle = "Create account"; ObjectID = "9bD-Ef-fux"; */
+"0Cs-I0-AhV.normalTitle" = "Создать аккаунт";
+
+/* Class = "UITextField"; placeholder = "password"; ObjectID = "G2i-vR-Zrv"; */
+"YdK-D8-P2T.placeholder" = "пароль";
+
+/* Class = "UITextField"; placeholder = "confirm password"; ObjectID = "HrS-7Q-mQg"; */
+"sWi-l9-Em2.placeholder" = "подтверждение пароля";
+
+/* Class = "UILabel"; text = "Wrong email or password"; ObjectID = "flr-26-ykO"; */
+"Jbr-nR-xay.text" = "Неправильный имейл или пароль";
+
+/* Class = "UITextField"; placeholder = "email"; ObjectID = "vl4-x4-yS2"; */
+"1Ge-qM-eFi.placeholder" = "имейл";

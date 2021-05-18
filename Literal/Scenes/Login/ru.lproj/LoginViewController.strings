@@ -1,0 +1,12 @@
+
+/* Class = "UITextField"; placeholder = "password"; ObjectID = "1q2-6e-92O"; */
+"zj5-R7-cpt.placeholder" = "пароль";
+
+/* Class = "UIButton"; normalTitle = "Log In"; ObjectID = "61K-Y5-5Aw"; */
+"AFq-5p-BGf.normalTitle" = "Логин";
+
+/* Class = "UITextField"; placeholder = "email"; ObjectID = "6Ec-j2-J1R"; */
+"BVI-cj-Ehw.placeholder" = "имейл";
+
+/* Class = "UILabel"; text = "Wrong email or password"; ObjectID = "cVr-ni-UGa"; */
+"56O-xf-9zv.text" = "Неправильный имейл или пароль";

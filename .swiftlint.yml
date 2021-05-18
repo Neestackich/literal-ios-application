@@ -1,0 +1,14 @@
+line_length:
+- 400 # warning
+- 500 # error
+disabled_rules:
+- identifier_name
+- type_name
+- force_cast
+- force_try
+large_tuple:
+- 8 # warning
+- 9 # error
+function_parameter_count:
+- 9 # warning
+- 10 # error

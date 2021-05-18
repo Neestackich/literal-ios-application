@@ -1,0 +1,49 @@
+PODS:
+  - RxCocoa (6.0.0):
+    - RxRelay (= 6.0.0)
+    - RxSwift (= 6.0.0)
+  - RxGesture (4.0.2):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxRelay (6.0.0):
+    - RxSwift (= 6.0.0)
+  - RxSwift (6.0.0)
+  - RxTest (6.0.0):
+    - RxSwift (= 6.0.0)
+  - SwiftGen (6.4.0)
+  - SwiftKeychainWrapper (4.0.1)
+  - SwiftLint (0.43.1)
+
+DEPENDENCIES:
+  - RxCocoa (= 6.0.0)
+  - RxGesture
+  - RxSwift (= 6.0.0)
+  - RxTest (= 6.0.0)
+  - SwiftGen (~> 6.0)
+  - SwiftKeychainWrapper
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - RxCocoa
+    - RxGesture
+    - RxRelay
+    - RxSwift
+    - RxTest
+    - SwiftGen
+    - SwiftKeychainWrapper
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
+  RxGesture: f059f2aeef966fb17dad56ee440e76410f10e55f
+  RxRelay: 8d593be109c06ea850df027351beba614b012ffb
+  RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
+  RxTest: ddef4052e63cb116f5b73510488c3113c37c62e5
+  SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
+  SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+
+PODFILE CHECKSUM: 0270970a2a0f4e74d13fa1b8c95512625da49749
+
+COCOAPODS: 1.10.1

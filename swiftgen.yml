@@ -1,0 +1,15 @@
+strings:
+  inputs: iTechBook/en.lproj
+  outputs:
+    - templateName: structured-swift5
+      output: iTechBook/SwiftGen/Strings.swift
+  inputs: iTechBook/ru.lproj
+  outputs:
+    - templateName: structured-swift5
+      output: iTechBook/SwiftGen/Strings.swift
+xcassets:
+  inputs:
+    - iTechBook/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      output: iTechBook/Assets.swift

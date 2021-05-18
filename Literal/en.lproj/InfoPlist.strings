@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  iTechBook
+
+  Created by Neestackich on 18.02.21.
+  
+*/
+
+SHOW_ACCOUNT_SHORTCUT = "Show account";
+ADD_BOOK_SHORTCUT = "Add book";

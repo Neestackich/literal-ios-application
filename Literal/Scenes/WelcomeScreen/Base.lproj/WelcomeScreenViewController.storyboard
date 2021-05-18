@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lkL-VY-z8v">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Welcome Screen View Controller-->
+        <scene sceneID="TuF-2m-vtq">
+            <objects>
+                <viewController storyboardIdentifier="WelcomeScreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lkL-VY-z8v" customClass="WelcomeScreenViewController" customModule="Literal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QnQ-YM-LPg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ulJ-y8-iXx">
+                                <rect key="frame" x="56" y="726" width="302" height="128"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulk-T1-WaU">
+                                        <rect key="frame" x="0.0" y="0.0" width="302" height="56"/>
+                                        <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="aO6-Nq-zFZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                        <state key="normal" title="Log In">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zre-WO-uNY">
+                                        <rect key="frame" x="0.0" y="72" width="302" height="56"/>
+                                        <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="toE-eA-p4c"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                        <state key="normal" title="Create account">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newLogo" translatesAutoresizingMaskIntoConstraints="NO" id="pVk-4f-s0p">
+                                <rect key="frame" x="87" y="131" width="240" height="240"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.41568627450980389" green="0.1764705882352941" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pVk-4f-s0p" secondAttribute="height" multiplier="240:240" id="sTU-Jp-D2o"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="e4v-YX-C3t"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ulJ-y8-iXx" firstAttribute="leading" secondItem="e4v-YX-C3t" secondAttribute="leading" constant="56" id="4D4-Ix-xUu"/>
+                            <constraint firstItem="e4v-YX-C3t" firstAttribute="trailing" secondItem="ulJ-y8-iXx" secondAttribute="trailing" constant="56" id="62G-dd-J2A"/>
+                            <constraint firstItem="pVk-4f-s0p" firstAttribute="leading" secondItem="e4v-YX-C3t" secondAttribute="leading" constant="87" id="ArB-Z4-ya3"/>
+                            <constraint firstItem="pVk-4f-s0p" firstAttribute="top" secondItem="e4v-YX-C3t" secondAttribute="top" constant="87" id="Idn-om-EFG"/>
+                            <constraint firstItem="pVk-4f-s0p" firstAttribute="width" secondItem="pVk-4f-s0p" secondAttribute="height" multiplier="240:240" id="bff-tv-5g7"/>
+                            <constraint firstItem="e4v-YX-C3t" firstAttribute="trailing" secondItem="pVk-4f-s0p" secondAttribute="trailing" constant="87" id="ezr-z4-D3a"/>
+                            <constraint firstItem="e4v-YX-C3t" firstAttribute="bottom" secondItem="ulJ-y8-iXx" secondAttribute="bottom" constant="8" id="yg9-3e-9Xt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="createAccountButton" destination="Zre-WO-uNY" id="EwF-uF-Exj"/>
+                        <outlet property="loginButton" destination="ulk-T1-WaU" id="qcB-gt-RVy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iGO-lL-weP" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-126" y="439"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="newLogo" width="434" height="461"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

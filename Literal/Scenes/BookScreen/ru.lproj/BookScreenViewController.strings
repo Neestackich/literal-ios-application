@@ -1,0 +1,14 @@
+
+/* Class = "UILabel"; text = "Book name"; ObjectID = "5sb-ML-ck0"; */
+"dB0-90-Vrl.text" = "Название книги";
+
+/* Class = "UILabel"; text = "Owner ID: "; ObjectID = "HyT-ug-Uqw"; */
+"yfq-LQ-hQx.text" = "ID владельца: ";
+
+"iZz-6R-gyG.text" = "ID книги: ";
+
+/* Class = "UILabel"; text = "Uploaded at: "; ObjectID = "fWC-Jk-15Q"; */
+"zGG-l8-56f.text" = "Загружена: ";
+
+/* Class = "UILabel"; text = "Status"; ObjectID = "ztC-hF-0gL"; */
+"Bsd-tk-lbn.text" = "Статус: ";

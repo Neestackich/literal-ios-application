@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jrp-Tp-0tN">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Book View Controller-->
+        <scene sceneID="8L5-oc-68k">
+            <objects>
+                <viewController storyboardIdentifier="AddBookViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jrp-Tp-0tN" customClass="AddBookViewController" customModule="iTechBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Luc-h7-gNh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5r-Md-YCK">
+                                <rect key="frame" x="353" y="68" width="37" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="wuN-s4-OjH"/>
+                                </constraints>
+                                <state key="normal" title="Done"/>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="wDy-MM-H7K">
+                                <rect key="frame" x="360" y="68" width="30" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="MUQ-zC-EVw"/>
+                                    <constraint firstAttribute="width" constant="30" id="cz6-dE-tcT"/>
+                                </constraints>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgA-aC-mWP">
+                                <rect key="frame" x="16" y="52" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="NC9-1p-PuU"/>
+                                    <constraint firstAttribute="height" constant="64" id="hiV-hY-1Gk"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="black"/>
+                                </state>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4HU-yd-uYc">
+                                <rect key="frame" x="16" y="132" width="382" height="256"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="soc-Nl-qiS">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="56"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5J-yU-iBB">
+                                                <rect key="frame" x="0.0" y="6.5" width="161" height="43"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BiI-ic-yof">
+                                                <rect key="frame" x="0.0" y="55" width="382" height="1"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="mNe-em-OYv"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="09H-BG-ivp"/>
+                                            <constraint firstItem="x5J-yU-iBB" firstAttribute="leading" secondItem="soc-Nl-qiS" secondAttribute="leading" id="PuI-I2-jV5"/>
+                                            <constraint firstItem="BiI-ic-yof" firstAttribute="leading" secondItem="soc-Nl-qiS" secondAttribute="leading" id="RTm-5O-yfu"/>
+                                            <constraint firstAttribute="bottom" secondItem="BiI-ic-yof" secondAttribute="bottom" id="k2t-yt-Ndf"/>
+                                            <constraint firstItem="x5J-yU-iBB" firstAttribute="centerY" secondItem="soc-Nl-qiS" secondAttribute="centerY" id="lfP-4i-4M8"/>
+                                            <constraint firstAttribute="trailing" secondItem="BiI-ic-yof" secondAttribute="trailing" id="qWV-J9-lkY"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIO-sN-LfU">
+                                        <rect key="frame" x="0.0" y="56" width="382" height="100"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="book name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wuN-Ip-Nh9">
+                                                <rect key="frame" x="40" y="22" width="302" height="56"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="Fr9-5a-B29"/>
+                                                    <constraint firstAttribute="height" constant="56" id="XAf-MY-gst"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="wuN-Ip-Nh9" firstAttribute="centerX" secondItem="zIO-sN-LfU" secondAttribute="centerX" id="3TM-Im-hlq"/>
+                                            <constraint firstItem="wuN-Ip-Nh9" firstAttribute="leading" secondItem="zIO-sN-LfU" secondAttribute="leading" constant="40" id="3eH-3D-owK"/>
+                                            <constraint firstItem="wuN-Ip-Nh9" firstAttribute="centerY" secondItem="zIO-sN-LfU" secondAttribute="centerY" id="O5B-tU-Dx5"/>
+                                            <constraint firstAttribute="height" constant="100" id="YKe-WX-a3o"/>
+                                            <constraint firstAttribute="trailing" secondItem="wuN-Ip-Nh9" secondAttribute="trailing" constant="40" id="YgQ-IC-P9u"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JHC-3n-g5t">
+                                        <rect key="frame" x="0.0" y="156" width="382" height="100"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="book author" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RMv-Ja-sIE">
+                                                <rect key="frame" x="40" y="22" width="302" height="56"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="IB8-g0-uhv"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="jLx-Fj-dgU"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="RMv-Ja-sIE" firstAttribute="centerY" secondItem="JHC-3n-g5t" secondAttribute="centerY" id="Fdk-DA-WsN"/>
+                                            <constraint firstAttribute="trailing" secondItem="RMv-Ja-sIE" secondAttribute="trailing" constant="40" id="PlW-ps-NIk"/>
+                                            <constraint firstItem="RMv-Ja-sIE" firstAttribute="leading" secondItem="JHC-3n-g5t" secondAttribute="leading" constant="40" id="Zym-Sq-Emi"/>
+                                            <constraint firstAttribute="height" constant="100" id="ey9-Zy-L4q"/>
+                                            <constraint firstItem="RMv-Ja-sIE" firstAttribute="centerX" secondItem="JHC-3n-g5t" secondAttribute="centerX" id="msl-Ct-geo"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ucq-Fc-B7l"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="L5r-Md-YCK" firstAttribute="top" secondItem="Ucq-Fc-B7l" secondAttribute="top" constant="24" id="Dqm-kP-q09"/>
+                            <constraint firstItem="Ucq-Fc-B7l" firstAttribute="trailing" secondItem="wDy-MM-H7K" secondAttribute="trailing" constant="24" id="E8K-M4-tLs"/>
+                            <constraint firstItem="fgA-aC-mWP" firstAttribute="top" secondItem="Ucq-Fc-B7l" secondAttribute="top" constant="8" id="Ibo-D9-an3"/>
+                            <constraint firstItem="4HU-yd-uYc" firstAttribute="top" secondItem="fgA-aC-mWP" secondAttribute="bottom" constant="16" id="NBa-nT-Lfs"/>
+                            <constraint firstItem="Ucq-Fc-B7l" firstAttribute="trailing" secondItem="L5r-Md-YCK" secondAttribute="trailing" constant="24" id="Rc8-FP-bJt"/>
+                            <constraint firstItem="4HU-yd-uYc" firstAttribute="leading" secondItem="Ucq-Fc-B7l" secondAttribute="leading" constant="16" id="Wl1-VJ-guV"/>
+                            <constraint firstItem="fgA-aC-mWP" firstAttribute="leading" secondItem="Ucq-Fc-B7l" secondAttribute="leading" constant="16" id="iIV-ad-eoP"/>
+                            <constraint firstItem="wDy-MM-H7K" firstAttribute="top" secondItem="Ucq-Fc-B7l" secondAttribute="top" constant="24" id="oSB-oA-6el"/>
+                            <constraint firstItem="Ucq-Fc-B7l" firstAttribute="trailing" secondItem="4HU-yd-uYc" secondAttribute="trailing" constant="16" id="rLq-k0-47p"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="fgA-aC-mWP" id="JrU-8H-c5D"/>
+                        <outlet property="bookAuthorTextField" destination="RMv-Ja-sIE" id="q2O-RO-ulW"/>
+                        <outlet property="bookNameTextField" destination="wuN-Ip-Nh9" id="Kc5-yJ-eNT"/>
+                        <outlet property="doneButton" destination="L5r-Md-YCK" id="qLF-vS-aRs"/>
+                        <outlet property="loadingActivityIndicator" destination="wDy-MM-H7K" id="O9F-Jg-X5X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bGK-RC-Od8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="208.69565217391306" y="166.74107142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
