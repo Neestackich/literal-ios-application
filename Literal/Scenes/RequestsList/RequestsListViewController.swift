@@ -1,6 +1,6 @@
 //
-//  LibraryViewController.swift
-//  iTechBook
+//  RequestsListViewController.swift
+//  Literal
 //
 //  Created by Neestackich on 7.12.20.
 //
@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class LibraryViewController: UIViewController, UITableViewDelegate {
+final class RequestsListViewController: UIViewController, UITableViewDelegate {
 
     // MARK: - Properties
 
@@ -18,12 +18,11 @@ final class LibraryViewController: UIViewController, UITableViewDelegate {
     @IBOutlet private var addBookButton: UIButton!
     @IBOutlet private var booksQuantityLabel: UILabel!
     @IBOutlet private var booksTableView: UITableView!
-    @IBOutlet private var mineBooksQuantityLabel: UILabel!
     @IBOutlet private var tableViewLoadingIndicator: UIActivityIndicatorView!
     @IBOutlet private var booksQuantityStack: UIStackView!
     @IBOutlet private var booksQuantityInfoActivityIndicator: UIActivityIndicatorView!
 
-    var viewModel: LibraryViewModelType? {
+    var viewModel: RequestsListViewModelType? {
         didSet {
             loadViewIfNeeded()
             bindViewModel()
@@ -42,7 +41,8 @@ final class LibraryViewController: UIViewController, UITableViewDelegate {
         booksTableView.layer.maskedCorners = [
             .layerMinXMinYCorner,
             .layerMaxXMinYCorner]
-        booksTableView.layer.cornerRadius = 20
+        booksTableView.layer.cornerRadius = 38
+        booksTableView.backgroundColor = .clear
         addBookButton.accessibilityIdentifier = "libraryAddButton"
         booksTableView.accessibilityIdentifier = "libraryTableView"
     }
@@ -52,19 +52,18 @@ final class LibraryViewController: UIViewController, UITableViewDelegate {
 
         if let viewModel = viewModel {
             let output = viewModel.transform(input: .init(
-                addBookButton: addBookButton.rx.tap.asDriver(),
+                addRequestButton: addBookButton.rx.tap.asDriver(),
                 cellSelection: booksTableView.rx.modelSelected(Book.self).asDriver()))
 
             disposeBag.insert(
-                output.booksQuantity.drive(booksQuantityLabel.rx.text),
-                output.mineBooksQuantity.drive(mineBooksQuantityLabel.rx.text),
+                output.requestsQuantity.drive(booksQuantityLabel.rx.text),
                 output.isLoading.drive(tableViewLoadingIndicator.rx.isAnimating,
                                        booksQuantityInfoActivityIndicator.rx.isAnimating,
                                        booksTableView.rx.isHidden,
                                        booksQuantityStack.rx.isHidden),
-                output.books.drive(booksTableView.rx.items(
+                output.requests.drive(booksTableView.rx.items(
                         cellIdentifier: "LibraryTableViewCell",
-                        cellType: LibraryTableViewCell.self)) { _, book, cell in
+                        cellType: RequestTableViewCell.self)) { _, book, cell in
                             cell.viewModel = BookViewModel(book: book)
                             cell.accessibilityIdentifier = "LibraryTableViewCell"
                         },

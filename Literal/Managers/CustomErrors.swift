@@ -1,6 +1,6 @@
 //
 //  CustomErrors.swift
-//  iTechBook
+//  Literal
 //
 //  Created by Neestackich on 27.01.21.
 //

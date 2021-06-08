@@ -1,6 +1,6 @@
 //
 //  LoginViewController.swift
-//  iTechBook
+//  Literal
 //
 //  Created by Neestackich on 24.11.20.
 //
@@ -16,7 +16,7 @@ final class LoginViewController: UIViewController {
 
     @IBOutlet private var textFieldsStackView: UIStackView!
     @IBOutlet private var loginButton: UIButton!
-    @IBOutlet private var emailTextField: UITextField!
+    @IBOutlet private var usernameTextField: UITextField!
     @IBOutlet private var appLogoImageView: UIImageView!
     @IBOutlet private var passwordTextField: UITextField!
     @IBOutlet private var loginActivityIndicator: UIActivityIndicatorView!
@@ -45,11 +45,11 @@ final class LoginViewController: UIViewController {
     }
 
     private func setup() {
-        loginButton.layer.cornerRadius = 20
-        emailTextField.layer.cornerRadius = 20
-        passwordTextField.layer.cornerRadius = 20
+        loginButton.layer.cornerRadius = 28
+        usernameTextField.layer.cornerRadius = 28
+        passwordTextField.layer.cornerRadius = 28
         loginButton.accessibilityIdentifier = "loginScrenLoginButton"
-        emailTextField.accessibilityIdentifier = "loginScreenEmailTextField"
+        usernameTextField.accessibilityIdentifier = "loginScreenEmailTextField"
         passwordTextField.accessibilityIdentifier = "loginScreenPasswordTextfield"
         backToWelcomeScreenButton.accessibilityIdentifier = "loginScreenBackButton"
     }
@@ -59,7 +59,7 @@ final class LoginViewController: UIViewController {
 
         if let viewModel = viewModel {
             let output = viewModel.transform(input:
-                .init(mail: emailTextField.rx.text.asDriver(),
+                .init(username: usernameTextField.rx.text.asDriver(),
                       password: passwordTextField.rx.text.asDriver(),
                       loginButtonClick: loginButton.rx.tap.asDriver(),
                       backButtonClick: backToWelcomeScreenButton.rx.tap.asDriver(),
@@ -78,7 +78,7 @@ final class LoginViewController: UIViewController {
                 output.triggers.drive(),
                 output.errorMessageIsHidden.drive(credentialsErrorLabel.rx.isHidden),
                 output.areUIElementsHidden.drive(loginButton.rx.isHidden,
-                                            emailTextField.rx.isHidden,
+                                            usernameTextField.rx.isHidden,
                                             passwordTextField.rx.isHidden),
                 output.buttonIsEnabled.drive(loginButton.rx.isEnabled),
                 output.isLoading.drive(loginActivityIndicator.rx.isAnimating,

@@ -16,29 +16,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradientBackground" translatesAutoresizingMaskIntoConstraints="NO" id="7bz-GB-1gv">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ulJ-y8-iXx">
                                 <rect key="frame" x="56" y="726" width="302" height="128"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulk-T1-WaU">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ulk-T1-WaU">
                                         <rect key="frame" x="0.0" y="0.0" width="302" height="56"/>
-                                        <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="aO6-Nq-zFZ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                        <state key="normal" title="Log In">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Log In">
+                                                    <attributes>
+                                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <font key="NSFont" size="29" name="ArialRoundedMTBold"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zre-WO-uNY">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zre-WO-uNY">
                                         <rect key="frame" x="0.0" y="72" width="302" height="56"/>
-                                        <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="toE-eA-p4c"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                        <state key="normal" title="Create account">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Create account">
+                                                    <attributes>
+                                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <font key="NSFont" size="29" name="ArialRoundedMTBold"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                         </state>
                                     </button>
                                 </subviews>
@@ -59,8 +74,12 @@
                             <constraint firstItem="e4v-YX-C3t" firstAttribute="trailing" secondItem="ulJ-y8-iXx" secondAttribute="trailing" constant="56" id="62G-dd-J2A"/>
                             <constraint firstItem="pVk-4f-s0p" firstAttribute="leading" secondItem="e4v-YX-C3t" secondAttribute="leading" constant="87" id="ArB-Z4-ya3"/>
                             <constraint firstItem="pVk-4f-s0p" firstAttribute="top" secondItem="e4v-YX-C3t" secondAttribute="top" constant="87" id="Idn-om-EFG"/>
+                            <constraint firstItem="7bz-GB-1gv" firstAttribute="leading" secondItem="e4v-YX-C3t" secondAttribute="leading" id="aEb-D3-Ka6"/>
                             <constraint firstItem="pVk-4f-s0p" firstAttribute="width" secondItem="pVk-4f-s0p" secondAttribute="height" multiplier="240:240" id="bff-tv-5g7"/>
+                            <constraint firstItem="7bz-GB-1gv" firstAttribute="trailing" secondItem="e4v-YX-C3t" secondAttribute="trailing" id="csl-eQ-dYY"/>
                             <constraint firstItem="e4v-YX-C3t" firstAttribute="trailing" secondItem="pVk-4f-s0p" secondAttribute="trailing" constant="87" id="ezr-z4-D3a"/>
+                            <constraint firstItem="7bz-GB-1gv" firstAttribute="top" secondItem="QnQ-YM-LPg" secondAttribute="top" id="gjU-wY-HJh"/>
+                            <constraint firstAttribute="bottom" secondItem="7bz-GB-1gv" secondAttribute="bottom" id="nMT-oI-nrI"/>
                             <constraint firstItem="e4v-YX-C3t" firstAttribute="bottom" secondItem="ulJ-y8-iXx" secondAttribute="bottom" constant="8" id="yg9-3e-9Xt"/>
                         </constraints>
                     </view>
@@ -75,6 +94,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gradientBackground" width="414" height="896"/>
         <image name="newLogo" width="434" height="461"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

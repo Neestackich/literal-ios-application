@@ -1,6 +1,6 @@
 //
 //  UIWindow+Extension.swift
-//  iTechBook
+//  Literal
 //
 //  Created by Neestackich on 16.02.21.
 //

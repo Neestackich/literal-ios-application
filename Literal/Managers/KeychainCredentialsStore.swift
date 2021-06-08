@@ -1,6 +1,6 @@
 //
 //  KeychainCredentialsStore.swift
-//  iTechBook
+//  Literal
 //
 //  Created by Neestackich on 14.01.21.
 //
@@ -10,8 +10,7 @@ import SwiftKeychainWrapper
 
 struct UserCredentials {
     let token: Token
-    let id: Int
-    let email: String
+    let username: String
 }
 
 protocol CredentialsStore {
@@ -22,27 +21,24 @@ final class KeychainCredentialsStore: CredentialsStore {
 
     // MARK: - Properties
 
-    private let userIDKey = "userID"
     private let userTokenKey = "userToken"
-    private let userEmail = "userEmail"
+    private let username = "username"
 
     private let keychain: KeychainWrapper
 
     var credentials: UserCredentials? {
         get {
-            let retrievedId = keychain.integer(forKey: userIDKey)
             let retrievedToken = keychain.string(forKey: userTokenKey)
-            let retrievedEmail = keychain.string(forKey: userEmail)
+            let retrievedUsername = keychain.string(forKey: username)
 
             guard let token = retrievedToken,
-                  let id = retrievedId,
-                  let email = retrievedEmail else {
+                  let username = retrievedUsername else {
                 print("No credentials data")
 
                 return nil
             }
 
-            return .init(token: token, id: id, email: email)
+            return .init(token: token, username: username)
         }
         set {
             guard let value = newValue else {
@@ -52,9 +48,8 @@ final class KeychainCredentialsStore: CredentialsStore {
                 return
             }
 
-            keychain.set(value.id, forKey: userIDKey)
             keychain.set(value.token, forKey: userTokenKey)
-            keychain.set(value.email, forKey: userEmail)
+            keychain.set(value.username, forKey: username)
 
             print("Credentials saved")
         }

@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  iTechBook
+//  Literal
 //
 //  Created by Neestackich on 11/18/20.
 //

@@ -1,6 +1,6 @@
 //
-//  BookScreenViewController.swift
-//  iTechBook
+//  RequestScreenViewController.swift
+//  Literal
 //
 //  Created by Neestackich on 3.01.21.
 //
@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class BookScreenViewController: UIViewController {
+final class RequestScreenViewController: UIViewController {
 
     // MARK: - Properties
 
@@ -21,7 +21,7 @@ final class BookScreenViewController: UIViewController {
     @IBOutlet private var bookNameLabel: UILabel!
     @IBOutlet private var uploadedAtLabel: UILabel!
 
-    var viewModel: BookScreenViewModelType? {
+    var viewModel: RequestScreenViewModelType? {
         didSet {
             loadViewIfNeeded()
             bindViewModel()

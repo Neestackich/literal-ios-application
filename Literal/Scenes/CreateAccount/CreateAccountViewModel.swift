@@ -1,6 +1,6 @@
 //
 //  CreateAccountViewModel.swift
-//  iTechBook
+//  Literal
 //
 //  Created by Neestackich on 24.11.20.
 //
@@ -11,6 +11,7 @@ import RxCocoa
 
 struct CreateAccountViewModelInput {
     let mail: Driver<String?>
+    let username: Driver<String?>
     let password: Driver<String?>
     let passwordConfirm: Driver<String?>
     let createButtonClick: Driver<Void>
@@ -55,8 +56,8 @@ final class CreateAccountViewModel: CreateAccountViewModelType {
     func transform(input: CreateAccountViewModelInput) -> CreateAccountViewModelOutput {
         let activityIndicator = ActivityIndicator()
 
-        let credentials = Driver.combineLatest(input.mail, input.password) {
-            return Credentials(mail: $0 ?? "", password: $1 ?? "")
+        let credentials = Driver.combineLatest(input.mail, input.password, input.username) {
+            return RegistrationCredentials(email: $0 ?? "", password: $1 ?? "", username: $2 ?? "")
         }
 
         let viewTapped = input.viewTap
@@ -76,7 +77,7 @@ final class CreateAccountViewModel: CreateAccountViewModelType {
 
         let errorMessageIsHidden = Driver.combineLatest(credentials, passwordConfirm) {
                 self.validator.areCredentialsValid(credentials: $0) && $1
-                    || ($0.mail.count == 0 && $0.password.count == 0)
+                    || ($0.email.count == 0 && $0.password.count == 0)
             }
 
         let didStartLoading = input.createButtonClick
@@ -87,13 +88,12 @@ final class CreateAccountViewModel: CreateAccountViewModelType {
                     .trackActivity(activityIndicator)
                     .asDriver(onErrorDo: self.router.showError)
                     .map {
-                        print($0.data.token)
+                        print($0)
 
                         self.credentialsStore.credentials =
                             UserCredentials(
-                            token: $0.data.token,
-                            id: $0.data.id,
-                            email: $0.data.mail)
+                            token: $0.token,
+                            username: $0.username)
                     }
             }
             .flatMapLatest {

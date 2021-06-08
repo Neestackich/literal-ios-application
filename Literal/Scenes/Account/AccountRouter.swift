@@ -1,6 +1,6 @@
 //
 //  AccountRouter.swift
-//  iTechBook
+//  Literal
 //
 //  Created by Neestackich on 5.01.21.
 //
@@ -30,10 +30,10 @@ final class AccountRouter: BaseRouter, AccountRouterType {
 
     func showBookScreen(book: Book) -> Single<Void> {
         return .create { _ in
-            let bookScreenaddBookViewController = BookScreenViewController.instantiateFromStoryboard()
+            let bookScreenaddBookViewController = RequestScreenViewController.instantiateFromStoryboard()
             bookScreenaddBookViewController.viewModel =
-                BookScreenViewModel(
-                    router: BookScreenRouter(
+                RequestScreenViewModel(
+                    router: RequestScreenRouter(
                     rootViewController: bookScreenaddBookViewController),
                     book: book)
 

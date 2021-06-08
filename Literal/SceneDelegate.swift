@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  iTechBook
+//  Literal
 //
 //  Created by Neestackich on 11/18/20.
 //
@@ -60,12 +60,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 .first?
                 .switchRootController(to: tabBarController,
                                       options: .transitionFlipFromRight) {
-                    let addBookViewController = AddBookViewController
+                    let addBookViewController = AddRequestViewController
                         .instantiateFromStoryboard()
                     addBookViewController.viewModel =
-                        AddBookViewModel(
+                        AddRequestViewModel(
                             apiClient: DependencyResolver.shared.apiClient,
-                            router: AddBookRouter(rootViewController: addBookViewController))
+                            router: AddRequestRouter(rootViewController: addBookViewController))
 
                     tabBarController.viewControllers?.first?.present(addBookViewController,
                                                                      animated: true,
@@ -99,11 +99,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func createTabBarController() -> UITabBarController {
-        let libraryViewController = LibraryViewController.instantiateFromStoryboard()
+        let libraryViewController = RequestsListViewController.instantiateFromStoryboard()
         libraryViewController.title = L10n.libraryLabel
-        libraryViewController.viewModel = LibraryViewModel(
+        libraryViewController.viewModel = RequestsListViewModel(
             apiClient: DependencyResolver.shared.apiClient,
-            router: LibraryRouter(rootViewController: libraryViewController),
+            router: RequestsListRouter(rootViewController: libraryViewController),
             credentialsStore: DependencyResolver.shared.keychain,
             database: DependencyResolver.shared.database)
 

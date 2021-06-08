@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jrp-Tp-0tN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jrp-Tp-0tN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add Book View Controller-->
+        <!--Add Request View Controller-->
         <scene sceneID="8L5-oc-68k">
             <objects>
-                <viewController storyboardIdentifier="AddBookViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jrp-Tp-0tN" customClass="AddBookViewController" customModule="iTechBook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddRequestViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jrp-Tp-0tN" customClass="AddRequestViewController" customModule="Literal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Luc-h7-gNh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,13 +44,13 @@
                                 </state>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4HU-yd-uYc">
-                                <rect key="frame" x="16" y="132" width="382" height="256"/>
+                                <rect key="frame" x="16" y="132" width="382" height="456"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="soc-Nl-qiS">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="56"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5J-yU-iBB">
-                                                <rect key="frame" x="0.0" y="6.5" width="161" height="43"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5J-yU-iBB">
+                                                <rect key="frame" x="0.0" y="6.5" width="179.5" height="43"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -74,49 +74,21 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIO-sN-LfU">
-                                        <rect key="frame" x="0.0" y="56" width="382" height="100"/>
+                                        <rect key="frame" x="0.0" y="56" width="382" height="400"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="book name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wuN-Ip-Nh9">
-                                                <rect key="frame" x="40" y="22" width="302" height="56"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.45000000000000001" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vhk-9l-wM9">
+                                                <rect key="frame" x="71" y="8.5" width="240" height="382"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="Fr9-5a-B29"/>
-                                                    <constraint firstAttribute="height" constant="56" id="XAf-MY-gst"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
+                                                <color key="tintColor" systemColor="systemGray5Color"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="wuN-Ip-Nh9" firstAttribute="centerX" secondItem="zIO-sN-LfU" secondAttribute="centerX" id="3TM-Im-hlq"/>
-                                            <constraint firstItem="wuN-Ip-Nh9" firstAttribute="leading" secondItem="zIO-sN-LfU" secondAttribute="leading" constant="40" id="3eH-3D-owK"/>
-                                            <constraint firstItem="wuN-Ip-Nh9" firstAttribute="centerY" secondItem="zIO-sN-LfU" secondAttribute="centerY" id="O5B-tU-Dx5"/>
-                                            <constraint firstAttribute="height" constant="100" id="YKe-WX-a3o"/>
-                                            <constraint firstAttribute="trailing" secondItem="wuN-Ip-Nh9" secondAttribute="trailing" constant="40" id="YgQ-IC-P9u"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JHC-3n-g5t">
-                                        <rect key="frame" x="0.0" y="156" width="382" height="100"/>
-                                        <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="book author" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RMv-Ja-sIE">
-                                                <rect key="frame" x="40" y="22" width="302" height="56"/>
-                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="56" id="IB8-g0-uhv"/>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="jLx-Fj-dgU"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="RMv-Ja-sIE" firstAttribute="centerY" secondItem="JHC-3n-g5t" secondAttribute="centerY" id="Fdk-DA-WsN"/>
-                                            <constraint firstAttribute="trailing" secondItem="RMv-Ja-sIE" secondAttribute="trailing" constant="40" id="PlW-ps-NIk"/>
-                                            <constraint firstItem="RMv-Ja-sIE" firstAttribute="leading" secondItem="JHC-3n-g5t" secondAttribute="leading" constant="40" id="Zym-Sq-Emi"/>
-                                            <constraint firstAttribute="height" constant="100" id="ey9-Zy-L4q"/>
-                                            <constraint firstItem="RMv-Ja-sIE" firstAttribute="centerX" secondItem="JHC-3n-g5t" secondAttribute="centerX" id="msl-Ct-geo"/>
+                                            <constraint firstAttribute="bottom" secondItem="vhk-9l-wM9" secondAttribute="bottom" constant="8" id="1wb-jy-7aS"/>
+                                            <constraint firstItem="vhk-9l-wM9" firstAttribute="top" secondItem="zIO-sN-LfU" secondAttribute="top" constant="8" id="Py2-hI-R5Q"/>
+                                            <constraint firstAttribute="trailing" secondItem="vhk-9l-wM9" secondAttribute="trailing" constant="71" id="XhR-WT-Udd"/>
+                                            <constraint firstAttribute="height" constant="400" id="YKe-WX-a3o"/>
+                                            <constraint firstItem="vhk-9l-wM9" firstAttribute="leading" secondItem="zIO-sN-LfU" secondAttribute="leading" constant="71" id="x8l-gN-pr1"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -138,9 +110,8 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="fgA-aC-mWP" id="JrU-8H-c5D"/>
-                        <outlet property="bookAuthorTextField" destination="RMv-Ja-sIE" id="q2O-RO-ulW"/>
-                        <outlet property="bookNameTextField" destination="wuN-Ip-Nh9" id="Kc5-yJ-eNT"/>
                         <outlet property="doneButton" destination="L5r-Md-YCK" id="qLF-vS-aRs"/>
+                        <outlet property="imageView" destination="vhk-9l-wM9" id="s72-48-4pu"/>
                         <outlet property="loadingActivityIndicator" destination="wDy-MM-H7K" id="O9F-Jg-X5X"/>
                     </connections>
                 </viewController>
@@ -150,9 +121,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" catalog="system" width="128" height="94"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

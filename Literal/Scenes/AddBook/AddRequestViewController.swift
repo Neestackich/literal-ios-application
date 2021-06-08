@@ -1,6 +1,6 @@
 //
-//  AddBookViewController.swift
-//  iTechBook
+//  AddRequestViewController.swift
+//  Literal
 //
 //  Created by Neestackich on 30.12.20.
 //
@@ -9,17 +9,18 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class AddBookViewController: UIViewController {
+final class AddRequestViewController: UIViewController {
 
     // MARK: - Properties
 
     @IBOutlet private var doneButton: UIButton!
     @IBOutlet private var backButton: UIButton!
-    @IBOutlet private var bookNameTextField: UITextField!
-    @IBOutlet private var bookAuthorTextField: UITextField!
+    @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var loadingActivityIndicator: UIActivityIndicatorView!
 
-    var viewModel: AddBookViewModelType? {
+    private var pickedImage = PublishSubject<UIImage>()
+
+    var viewModel: AddRequestViewModelType? {
         didSet {
             loadViewIfNeeded()
             bindViewModel()
@@ -37,17 +38,14 @@ final class AddBookViewController: UIViewController {
     }
 
     private func setup() {
-        bookNameTextField.layer.cornerRadius = 20
-        bookAuthorTextField.layer.cornerRadius = 20
-        bookNameTextField.accessibilityIdentifier = "addBookScreenNameTextField"
-        bookAuthorTextField.accessibilityIdentifier = "addBookScreenAuthorTextField"
         doneButton.accessibilityIdentifier = "addBookScreenDoneButton"
         backButton.accessibilityIdentifier = "addBookScreenBackButton"
-
-        view.addGestureRecognizer(
+        imageView.layer.cornerRadius = 15
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(
             UITapGestureRecognizer(
                 target: self,
-                action: #selector(hideKeyboard)))
+                action: #selector(openCamera)))
 
         let blurEffect = UIBlurEffect(style: .systemUltraThinMaterial)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -63,19 +61,38 @@ final class AddBookViewController: UIViewController {
                 input: .init(
                     doneClick: doneButton.rx.tap.asDriver(),
                     backClick: backButton.rx.tap.asDriver(),
-                    nameTextField: bookNameTextField.rx.text.asDriver(),
-                    authorTextField: bookAuthorTextField.rx.text.asDriver())
+                    imageData: pickedImage.asDriver(onErrorDriveWith: .empty()))
             )
 
             disposeBag.insert(output.triggers.drive(),
-                              output.isValidName.drive(doneButton.rx.isEnabled),
                               output.isLoading.drive(
                                 loadingActivityIndicator.rx.isAnimating,
                                 doneButton.rx.isHidden))
         }
     }
 
-    @objc private func hideKeyboard() {
-        view.endEditing(true)
+    @objc private func openCamera() {
+        let cameraPicker = UIImagePickerController()
+        cameraPicker.sourceType = .camera
+        cameraPicker.delegate = self
+        present(cameraPicker, animated: true)
+    }
+}
+
+extension AddRequestViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true)
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        dismiss(animated: true)
+        guard let cameraImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+
+        let imagePath = info[UIImagePickerController.InfoKey.imageURL] as? NSURL
+        print(imagePath)
+        pickedImage.onNext(cameraImage)
+        imageView.image = cameraImage
+        imageView.alpha = 0.95
     }
 }

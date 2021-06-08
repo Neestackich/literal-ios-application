@@ -1,6 +1,6 @@
 //
 //  CreateAccountViewController.swift
-//  iTechBook
+//  Literal
 //
 //  Created by Neestackich on 2.12.20.
 //
@@ -14,6 +14,7 @@ final class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Properties
 
     @IBOutlet private var emailTextField: UITextField!
+    @IBOutlet private var usernameTextField: UITextField!
     @IBOutlet private var appLogoImageView: UIImageView!
     @IBOutlet private var createAccountButton: UIButton!
     @IBOutlet private var passwordTextField: UITextField!
@@ -44,10 +45,11 @@ final class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     }
 
     private func setup() {
-        emailTextField.layer.cornerRadius = 20
-        passwordTextField.layer.cornerRadius = 20
-        createAccountButton.layer.cornerRadius = 20
-        confirmPasswordTextField.layer.cornerRadius = 20
+        emailTextField.layer.cornerRadius = 28
+        passwordTextField.layer.cornerRadius = 28
+        usernameTextField.layer.cornerRadius = 28
+        createAccountButton.layer.cornerRadius = 28
+        confirmPasswordTextField.layer.cornerRadius = 28
         createAccountButton.accessibilityIdentifier = "createAccountCreateButton"
         emailTextField.accessibilityIdentifier = "createAccountEmailTextField"
         passwordTextField.accessibilityIdentifier = "createAccountPasswordTextfield"
@@ -60,7 +62,7 @@ final class CreateAccountViewController: UIViewController, UITextFieldDelegate {
 
         if let viewModel = viewModel {
             let output = viewModel.transform(input:
-                .init(mail: emailTextField.rx.text.asDriver(),
+                                                .init(mail: emailTextField.rx.text.asDriver(), username: usernameTextField.rx.text.asDriver(),
                       password: passwordTextField.rx.text.asDriver(),
                       passwordConfirm: confirmPasswordTextField.rx.text.asDriver(),
                       createButtonClick: createAccountButton.rx.tap.asDriver(),

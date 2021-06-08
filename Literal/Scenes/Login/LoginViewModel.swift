@@ -1,6 +1,6 @@
 //
 //  LoginViewModel.swift
-//  iTechBook
+//  Literal
 //
 //  Created by Neestackich on 24.11.20.
 //
@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 struct LoginViewModelInput {
-    let mail: Driver<String?>
+    let username: Driver<String?>
     let password: Driver<String?>
     let loginButtonClick: Driver<Void>
     let backButtonClick: Driver<Void>
@@ -53,8 +53,8 @@ final class LoginViewModel: LoginViewModelType {
     func transform(input: LoginViewModelInput) -> LoginViewModelOutput {
         let activityIndicator = ActivityIndicator()
 
-        let credentials = Driver.combineLatest(input.mail, input.password) {
-            return Credentials(mail: $0 ?? "", password: $1 ?? "")
+        let credentials = Driver.combineLatest(input.username, input.password) {
+            return LoginCredentials(username: $0 ?? "", password: $1 ?? "")
         }
 
         let viewTapped = input.viewTap
@@ -70,7 +70,7 @@ final class LoginViewModel: LoginViewModelType {
         let errorMessageIsHidden = credentials
             .map {
                 self.validator.areCredentialsValid(credentials: $0)
-                    || ($0.mail.count == 0 && $0.password.count == 0)
+                    || ($0.username.count == 0 && $0.password.count == 0)
             }
 
         let didStartLoading = input.loginButtonClick
@@ -81,13 +81,12 @@ final class LoginViewModel: LoginViewModelType {
                     .trackActivity(activityIndicator)
                     .asDriver(onErrorDo: self.router.showError)
                     .map {
-                        print($0.data.token)
+                        print($0.token)
 
                         self.credentialsStore.credentials =
                             UserCredentials(
-                            token: $0.data.token,
-                            id: $0.data.id,
-                            email: $0.data.mail)
+                            token: $0.token,
+                            username: $0.username)
                     }
             }
             .flatMapLatest {

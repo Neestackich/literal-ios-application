@@ -1,6 +1,6 @@
 //
 //  UIView+RxExtension.swift
-//  iTechBook
+//  Literal
 //
 //  Created by Neestackich on 18.02.21.
 //

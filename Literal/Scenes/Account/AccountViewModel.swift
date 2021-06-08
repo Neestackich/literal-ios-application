@@ -1,6 +1,6 @@
 //
 //  AccountViewModel.swift
-//  iTechBook
+//  Literal
 //
 //  Created by Neestackich on 31.12.20.
 //
@@ -59,15 +59,15 @@ final class AccountViewModel: AccountViewModelType {
 
         let booksFromServer = self.apiClient.request(endpoint: .getOwnBooks())
             .trackActivity(booksActivityIndicator)
-            .map { $0.data }
+            .map { $0 }
             .asDriver(onErrorDriveWith: .empty())
 
-        let booksFromDatabase = self.database.getMyBooks(ownerId: self.credentialsStore.credentials?.id ?? 0)
+        let booksFromDatabase = self.database.getMyBooks(ownerId: 0)
             .asDriver(onErrorDriveWith: .empty())
 
-        let userDataFromServer = self.apiClient.request(endpoint: .showUser(with: credentialsStore.credentials?.id ?? 0))
+        let userDataFromServer = self.apiClient.request(endpoint: .showUser(with: 0))
             .trackActivity(userDataActivityIndicato)
-            .map { $0.data }
+            .map { $0 }
             .asDriver(onErrorDriveWith: .empty())
 
         let userDataFromKeychain = { () ->
@@ -77,8 +77,8 @@ final class AccountViewModel: AccountViewModelType {
             }
 
             return Driver<UserData>.just(
-                UserData(id: credentials.id,
-                         mail: credentials.email))
+                UserData(token: credentials.token,
+                         username: credentials.username))
         }()
 
         let isServerDataEmpty = booksFromServer.map {
@@ -101,8 +101,8 @@ final class AccountViewModel: AccountViewModelType {
             books: .merge(booksFromServer, booksFromDatabase),
             areBooksLoading: booksActivityIndicator.asDriver(),
             isUserDataLoading: userDataActivityIndicato.asDriver(),
-            email: .merge(userDataFromServer.map { $0.mail },
-                          userDataFromKeychain.map { $0.mail }),
+            email: .merge(userDataFromServer.map { $0.username },
+                          userDataFromKeychain.map { $0.username }),
             triggers: .merge(logOut, cellSelected),
             isDataEmpty: .merge(isServerDataEmpty.map { !$0 },
                                 isDatabaseDataEmpty.map { !$0 }))

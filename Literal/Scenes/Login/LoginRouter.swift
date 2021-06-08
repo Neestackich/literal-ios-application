@@ -1,6 +1,6 @@
 //
 //  LoginRouter.swift
-//  iTechBook
+//  Literal
 //
 //  Created by Neestackich on 4.01.21.
 //
@@ -25,12 +25,12 @@ final class LoginRouter: BaseRouter, LoginRouterType {
 
     func showLibraryScreen() -> Single<Void> {
         return .create { _ in
-            let libraryViewController = LibraryViewController.instantiateFromStoryboard()
+            let libraryViewController = RequestsListViewController.instantiateFromStoryboard()
             let libraryTitle = L10n.libraryLabel
             libraryViewController.title = libraryTitle
-            libraryViewController.viewModel = LibraryViewModel(
+            libraryViewController.viewModel = RequestsListViewModel(
                 apiClient: DependencyResolver.shared.apiClient,
-                router: LibraryRouter(rootViewController: libraryViewController),
+                router: RequestsListRouter(rootViewController: libraryViewController),
                 credentialsStore: DependencyResolver.shared.keychain,
                 database: DependencyResolver.shared.database)
 

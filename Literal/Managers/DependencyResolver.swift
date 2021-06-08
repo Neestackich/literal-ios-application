@@ -1,6 +1,6 @@
 //
 //  DependencyResolver.swift
-//  iTechBook
+//  Literal
 //
 //  Created by Neestackich on 18.01.21.
 //

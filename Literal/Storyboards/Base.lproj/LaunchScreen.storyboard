@@ -16,20 +16,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newLogo" translatesAutoresizingMaskIntoConstraints="NO" id="EEp-5w-fpf">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradientBackground" translatesAutoresizingMaskIntoConstraints="NO" id="xSp-zU-aFe">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newLogo" translatesAutoresizingMaskIntoConstraints="NO" id="SK7-Wn-8y8">
                                 <rect key="frame" x="87" y="134" width="240" height="240"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="EEp-5w-fpf" secondAttribute="height" multiplier="240:240" id="Zm7-eC-Kfq"/>
+                                    <constraint firstAttribute="width" secondItem="SK7-Wn-8y8" secondAttribute="height" multiplier="240:240" id="upD-8s-OBY"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dMc-Qe-H5R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="EEp-5w-fpf" firstAttribute="leading" secondItem="wFz-Lh-i2S" secondAttribute="leading" constant="87" id="dqv-DA-X16"/>
-                            <constraint firstItem="dMc-Qe-H5R" firstAttribute="trailing" secondItem="EEp-5w-fpf" secondAttribute="trailing" constant="87" id="jTk-GM-Qif"/>
-                            <constraint firstItem="EEp-5w-fpf" firstAttribute="top" secondItem="dMc-Qe-H5R" secondAttribute="top" constant="90" id="kxV-dT-ZEG"/>
+                            <constraint firstItem="xSp-zU-aFe" firstAttribute="leading" secondItem="dMc-Qe-H5R" secondAttribute="leading" id="1TN-Rq-2pF"/>
+                            <constraint firstItem="SK7-Wn-8y8" firstAttribute="width" secondItem="SK7-Wn-8y8" secondAttribute="height" multiplier="240:240" id="6UU-ej-LiL"/>
+                            <constraint firstAttribute="bottom" secondItem="xSp-zU-aFe" secondAttribute="bottom" id="Bhw-1W-4Ox"/>
+                            <constraint firstItem="SK7-Wn-8y8" firstAttribute="leading" secondItem="dMc-Qe-H5R" secondAttribute="leading" constant="87" id="PT6-Ay-53M"/>
+                            <constraint firstItem="dMc-Qe-H5R" firstAttribute="trailing" secondItem="xSp-zU-aFe" secondAttribute="trailing" id="bKR-f0-CEk"/>
+                            <constraint firstItem="SK7-Wn-8y8" firstAttribute="top" secondItem="dMc-Qe-H5R" secondAttribute="top" constant="90" id="dIM-Ro-fct"/>
+                            <constraint firstItem="xSp-zU-aFe" firstAttribute="top" secondItem="wFz-Lh-i2S" secondAttribute="top" id="eCV-Fo-mQX"/>
+                            <constraint firstItem="dMc-Qe-H5R" firstAttribute="trailing" secondItem="SK7-Wn-8y8" secondAttribute="trailing" constant="87" id="hEb-QV-znZ"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -39,6 +47,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gradientBackground" width="414" height="896"/>
         <image name="newLogo" width="434" height="461"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

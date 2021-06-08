@@ -3,9 +3,9 @@
 "XmG-UP-3ri.text" = "мои";
 
 /* Class = "UILabel"; text = "books"; ObjectID = "IfF-Bu-4PP"; */
-"a81-JI-Gq5.text" = "книги";
+"a81-JI-Gq5.text" = "запросы";
 
-"XhP-o4-E8c.text" = "Все книги";
+"XhP-o4-E8c.text" = "Все запросы";
 
 /* Class = "UILabel"; text = "SHOW"; ObjectID = "PS0-x3-2o3"; */
 "PS0-x3-2o3.text" = "ПОКАЗАТЬ";
@@ -19,10 +19,10 @@
 /* Class = "UILabel"; text = "mine books quantity"; ObjectID = "jAO-op-Qzq"; */
 "jAO-op-Qzq.text" = "Количество моих книг";
 
-/* Class = "UILabel"; text = "Library"; ObjectID = "o9I-W0-tNt"; */
-"F1C-rV-bRy.text" = "Библиотека";
+/* Class = "UILabel"; text = "Requests list"; ObjectID = "o9I-W0-tNt"; */
+"F1C-rV-bRy.text" = "Список запросов";
 
 /* Class = "UILabel"; text = "Book name"; ObjectID = "y9a-An-9D9"; */
 "40N-JP-H6T.text" = "Название книги";
 
-"Ok9-aG-X9t.text" = "К сожалению здесь нет ни одной книги. Нажмите +, чтобы добавить одну";
+"Ok9-aG-X9t.text" = "К сожалению здесь нет ни одного запроса. Нажмите +, чтобы добавить";

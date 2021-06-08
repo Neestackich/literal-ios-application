@@ -1,9 +1,11 @@
 //
 //  APIClient.swift
-//  iTechBook
+//  Literal
 //
 //  Created by Neestackich on 25.11.20.
 //
+
+// http://Neestackich.local:8000/api/v1/authentication/login/
 
 import UIKit
 import RxSwift
@@ -23,6 +25,10 @@ struct Response<DataType: Decodable>: Decodable {
     let data: DataType
 }
 
+struct ErrorResponse {
+    let message: String
+}
+
 struct BackendErrorType: Decodable {
     let mail: [String]
 }
@@ -31,6 +37,11 @@ struct CreateAccountData: Decodable {
     let id: Int
     let mail: String
     let token: Token
+}
+
+struct LoginResponce: Decodable {
+    let username: String
+    let token: String
 }
 
 struct LoginData: Decodable {
@@ -131,29 +142,43 @@ struct Book: Decodable {
     }
 }
 
-struct Credentials: Encodable {
-    let mail: String
+struct RegistrationCredentials: Encodable {
+    let email: String
+    let password: String
+    let username: String
+}
+
+struct LoginCredentials: Encodable {
+    let username: String
     let password: String
 }
 
-struct BookData: Encodable {
-    let name: String
+struct ImageData: Encodable {
+    let image: Data?
 }
 
 struct UserData: Decodable {
-    let id: Int
-    let mail: String
+    let token: String
+    let username: String
 }
 
 protocol APIClientType {
-    func request<T: Decodable>(endpoint: Endpoint<T>) -> Single<Response<T>>
+    func request<T: Decodable>(endpoint: Endpoint<T>) -> Single<T>
+}
+
+extension NSMutableData {
+  func append(_ string: String) {
+    if let data = string.data(using: .utf8) {
+      self.append(data)
+    }
+  }
 }
 
 final class APIClient: APIClientType {
 
     // MARK: - Properties
 
-    private let urlPrefix = "https://powerful-citadel-31931.herokuapp.com/api/v1"
+    private let urlPrefix = "http://Neestackich.local:8000/api/v1/"
     private let decoder: JSONDecoder
     private let credentialsStore: CredentialsStore
 
@@ -174,33 +199,132 @@ final class APIClient: APIClientType {
 
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
-        request.httpBody = endpoint.body?.toSJONData()
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        if endpoint.imageUpload, let body = endpoint.body as? ImageData, let image = body.image {
+
+            let parameters = [
+              [
+                "key": "image",
+                "src": "image.jpeg",
+                "type": "file"
+              ]] as [[String : Any]]
+
+            let boundary = "Boundary-\(UUID().uuidString)"
+            var body = ""
+
+            for param in parameters {
+                if param["disabled"] == nil {
+                    let paramName = param["key"]!
+                    body += "--\(boundary)\r\n"
+                    body += "Content-Disposition:form-data; name=\"\(paramName)\""
+                    if param["contentType"] != nil {
+                        body += "\r\nContent-Type: \(param["contentType"] as! String)"
+                    }
+
+                    let paramType = param["type"] as! String
+
+                    if paramType == "text" {
+                        let paramValue = param["value"] as! String
+                        body += "\r\n\r\n\(paramValue)\r\n"
+                    } else {
+                        let paramSrc = param["src"] as! String
+
+                        let imageItself = UIImage(data: image)
+                        let imageData = imageItself!.jpegData(compressionQuality: 0)
+                        let base64 = (imageData?.base64EncodedData(options: .ArrayLiteralElement()))!
+                        let encoded = String(data: base64, encoding: .utf8)!
+                        print(encoded.replacingOccurrences(of: " ", with: ""))
+                        body += "; filename=\"\(paramSrc)\"\r\n"
+                            + "Content-Type: img/jpeg\r\n header\"\r\n\r\n\(encoded.replacingOccurrences(of: " ", with: ""))\r\n"
+                    }
+                }
+            }
+
+            body += "--\(boundary)--\r\n"
+            let postData = body.data(using: .utf8)
+
+            request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+            request.httpBody = postData
+ 
+        } else {
+            request.httpBody = endpoint.body?.toSJONData()
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        }
 
         if endpoint.isTokenRequired, let userToken = credentialsStore.credentials?.token {
-            request.addValue("Bearer \(userToken)", forHTTPHeaderField: "Authorization")
+            request.addValue("Token \(userToken)", forHTTPHeaderField: "Authorization")
         }
 
         return request
     }
 
-    func request<T: Decodable>(endpoint: Endpoint<T>) -> Single<Response<T>> {
-         return Single<Response<T>>.create { observer in
+    struct MultipartFormDataRequest {
+        private let boundary: String = UUID().uuidString
+        private var httpBody = NSMutableData()
+        let url: URL
+
+        init(url: URL) {
+            self.url = url
+        }
+
+        func addTextField(named name: String, value: String) {
+            httpBody.append(textFormField(named: name, value: value))
+        }
+
+        private func textFormField(named name: String, value: String) -> String {
+            var fieldString = "--\(boundary)\r\n"
+            fieldString += "Content-Disposition: form-data; name=\"\(name)\"\r\n"
+            fieldString += "Content-Type: text/plain; charset=ISO-8859-1\r\n"
+            fieldString += "Content-Transfer-Encoding: 8bit\r\n"
+            fieldString += "\r\n"
+            fieldString += "\(value)\r\n"
+
+            return fieldString
+        }
+
+        func addDataField(named name: String, data: Data, mimeType: String) {
+            httpBody.append(dataFormField(named: name, data: data, mimeType: mimeType))
+        }
+
+        func asURLRequest() -> URLRequest {
+            var request = URLRequest(url: url)
+
+            request.httpMethod = "POST"
+            request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+
+            httpBody.append("--\(boundary)--")
+            request.httpBody = httpBody as Data
+            return request
+        }
+
+        private func dataFormField(named name: String, data: Data, mimeType: String) -> Data {
+            let fieldData = NSMutableData()
+
+            fieldData.append("--\(boundary)\r\n")
+            fieldData.append("Content-Disposition: form-data; name=\"\(name)\"\r\n")
+            fieldData.append("Content-Type: \(mimeType)\r\n")
+            fieldData.append("\r\n")
+            fieldData.append(data)
+            fieldData.append("\r\n")
+
+            return fieldData as Data
+        }
+    }
+
+    func request<T: Decodable>(endpoint: Endpoint<T>) -> Single<T> {
+         return Single<T>.create { observer in
             do {
                 let request = try self.setupRequest(endpoint: endpoint)
                 let task = URLSession.shared.dataTask(with: request) { data, _, error in
                     if let error = error {
                         let nsError = error as NSError
-
                         observer(.failure(self.getNetworkError(error: nsError)))
                     } else if let data = data {
                         do {
-                            let parsedData = try self.decoder.decode(Response<T>.self, from: data)
-
+                            let parsedData = try self.decoder.decode(T.self, from: data)
                             observer(.success(parsedData))
                         } catch {
                             let nsError = error as NSError
-
                             observer(.failure(self.getBackendError(error: nsError)))
                         }
                     }

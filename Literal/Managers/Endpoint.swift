@@ -1,6 +1,6 @@
 //
 //  Endpoint.swift
-//  iTechBook
+//  Literal
 //
 //  Created by Neestackich on 11.12.20.
 //
@@ -16,6 +16,8 @@ enum EndpointMethod: String {
 
 enum EndpointType {
     case login
+    case createAccount
+    case scanRequest
     case users
     case books
     case ownBooks
@@ -24,7 +26,11 @@ enum EndpointType {
     var value: String {
         switch self {
         case .login:
-            return "/login"
+            return "authentication/login/"
+        case .createAccount:
+            return "authentication/register/"
+        case .scanRequest:
+            return "order/"
         case .users:
             return "/users"
         case .books:
@@ -42,20 +48,23 @@ struct Endpoint<ResponseType: Decodable> {
     let method: EndpointMethod
     let isTokenRequired: Bool
     let body: Encodable?
+    let imageUpload: Bool
 
     init(path: EndpointType,
          method: EndpointMethod,
          isTokenRequired: Bool,
-         body: Encodable?) {
+         body: Encodable?,
+         imageUpload: Bool = false) {
         self.path = path
         self.method = method
         self.isTokenRequired = isTokenRequired
         self.body = body
+        self.imageUpload = imageUpload
     }
 }
 
 extension Endpoint {
-    static func login(with credentials: Credentials) -> Endpoint<LoginData> {
+    static func login(with credentials: LoginCredentials) -> Endpoint<LoginResponce> {
         return .init(
             path: .login,
             method: .post,
@@ -63,16 +72,16 @@ extension Endpoint {
             body: credentials)
     }
 
-    static func createAccount(with credentials: Credentials) -> Endpoint<CreateAccountData> {
+    static func createAccount(with credentials: RegistrationCredentials) -> Endpoint<LoginResponce> {
         return .init(
-            path: .users,
+            path: .createAccount,
             method: .post,
             isTokenRequired: false,
             body: credentials
         )
     }
 
-    static func getBooks() -> Endpoint<[Book]> {
+    static func getRequests() -> Endpoint<[Book]> {
         return .init(
             path: .books,
             method: .get,
@@ -80,12 +89,13 @@ extension Endpoint {
             body: nil)
     }
 
-    static func addBook(with bookData: BookData) -> Endpoint<Book> {
+    static func addRequest(with imageData: ImageData) -> Endpoint<Book> {
         return .init(
-            path: .books,
+            path: .scanRequest,
             method: .post,
             isTokenRequired: true,
-            body: bookData)
+            body: imageData,
+            imageUpload: true)
     }
 
     static func showUser(with id: Int) -> Endpoint<UserData> {

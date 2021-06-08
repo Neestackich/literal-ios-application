@@ -1,6 +1,6 @@
 //
 //  AccountViewController.swift
-//  iTechBook
+//  Literal
 //
 //  Created by Neestackich on 31.12.20.
 //
@@ -63,7 +63,7 @@ final class AccountViewController: UIViewController, UITableViewDelegate {
                     emailLabel.rx.isHidden),
                 output.books.drive(booksTableView.rx.items(
                     cellIdentifier: "LibraryTableViewCell",
-                    cellType: LibraryTableViewCell.self)) { _, book, cell in
+                    cellType: RequestTableViewCell.self)) { _, book, cell in
                             cell.viewModel = BookViewModel(book: book)
                             cell.accessibilityIdentifier = "accountTableViewCell"
                     },

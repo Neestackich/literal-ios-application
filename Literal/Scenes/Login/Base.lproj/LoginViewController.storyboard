@@ -17,6 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradientBackground" translatesAutoresizingMaskIntoConstraints="NO" id="dXM-lG-3E3">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newLogo" translatesAutoresizingMaskIntoConstraints="NO" id="I3z-Ms-ql4">
                                 <rect key="frame" x="87" y="134" width="240" height="240"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -29,19 +32,22 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="BVI-cj-Ehw">
                                         <rect key="frame" x="0.0" y="0.0" width="302" height="56"/>
-                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="DLZ-Al-60T"/>
                                         </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="password" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zj5-R7-cpt">
                                         <rect key="frame" x="0.0" y="72" width="302" height="56"/>
-                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="EDN-dz-hYx"/>
                                         </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
@@ -54,10 +60,16 @@
                                     <constraint firstAttribute="height" constant="40" id="rq2-j7-WiQ"/>
                                 </constraints>
                             </activityIndicatorView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrong email or password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56O-xf-9zv">
-                                <rect key="frame" x="135.5" y="620" width="143" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="1" green="0.23258557360000001" blue="0.19512251950000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56O-xf-9zv">
+                                <rect key="frame" x="133.5" y="620" width="147.5" height="35"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Wrong email or password">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.23258557360000001" blue="0.19512251950000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="12" name="ArialRoundedMTBold"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yTl-oY-JVL">
@@ -66,21 +78,27 @@
                                     <constraint firstAttribute="height" constant="64" id="CYz-Zy-mV0"/>
                                     <constraint firstAttribute="width" constant="64" id="boa-jL-VQe"/>
                                 </constraints>
-                                <color key="tintColor" systemColor="labelColor"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal">
                                     <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="black"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFq-5p-BGf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AFq-5p-BGf">
                                 <rect key="frame" x="56" y="798" width="302" height="56"/>
-                                <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="tod-qj-182"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="Log In">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Log In">
+                                            <attributes>
+                                                <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <font key="NSFont" size="29" name="ArialRoundedMTBold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                             </button>
                         </subviews>
@@ -96,24 +114,28 @@
                             <constraint firstItem="I3z-Ms-ql4" firstAttribute="leading" secondItem="seF-dc-Ebx" secondAttribute="leading" constant="87" id="GzH-g5-yGQ"/>
                             <constraint firstItem="seF-dc-Ebx" firstAttribute="bottom" secondItem="AFq-5p-BGf" secondAttribute="bottom" constant="8" id="HY0-wU-1hb"/>
                             <constraint firstItem="W1g-e7-cUh" firstAttribute="leading" secondItem="seF-dc-Ebx" secondAttribute="leading" constant="56" id="Ngj-Zf-dkU"/>
+                            <constraint firstItem="dXM-lG-3E3" firstAttribute="trailing" secondItem="seF-dc-Ebx" secondAttribute="trailing" id="P5h-gP-EBj"/>
                             <constraint firstItem="seF-dc-Ebx" firstAttribute="trailing" secondItem="I3z-Ms-ql4" secondAttribute="trailing" constant="87" id="Wfj-si-RfS"/>
                             <constraint firstItem="seF-dc-Ebx" firstAttribute="bottom" secondItem="pPG-h9-Siy" secondAttribute="bottom" constant="8" id="aH6-j3-gIx"/>
+                            <constraint firstItem="dXM-lG-3E3" firstAttribute="leading" secondItem="seF-dc-Ebx" secondAttribute="leading" id="ajn-9k-Mkq"/>
                             <constraint firstItem="seF-dc-Ebx" firstAttribute="trailing" secondItem="AFq-5p-BGf" secondAttribute="trailing" constant="56" id="hgS-t5-zjr"/>
+                            <constraint firstAttribute="bottom" secondItem="dXM-lG-3E3" secondAttribute="bottom" id="lzp-dx-cWu"/>
                             <constraint firstItem="yTl-oY-JVL" firstAttribute="leading" secondItem="seF-dc-Ebx" secondAttribute="leading" constant="16" id="rLK-W1-sK1"/>
                             <constraint firstItem="AFq-5p-BGf" firstAttribute="leading" secondItem="seF-dc-Ebx" secondAttribute="leading" constant="56" id="sZJ-C7-9gT"/>
                             <constraint firstItem="I3z-Ms-ql4" firstAttribute="top" secondItem="seF-dc-Ebx" secondAttribute="top" constant="90" id="uup-DN-7jB"/>
                             <constraint firstItem="W1g-e7-cUh" firstAttribute="top" relation="lessThanOrEqual" secondItem="I3z-Ms-ql4" secondAttribute="bottom" constant="110" id="vzo-IU-szQ"/>
+                            <constraint firstItem="dXM-lG-3E3" firstAttribute="top" secondItem="HAg-dz-Zdj" secondAttribute="top" id="yRS-2j-aIq"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="appLogoImageView" destination="I3z-Ms-ql4" id="mRW-Yk-aH2"/>
                         <outlet property="backToWelcomeScreenButton" destination="yTl-oY-JVL" id="guc-VK-PRn"/>
                         <outlet property="credentialsErrorLabel" destination="56O-xf-9zv" id="AuS-7Y-gtu"/>
-                        <outlet property="emailTextField" destination="BVI-cj-Ehw" id="vwq-2C-kCU"/>
                         <outlet property="loginActivityIndicator" destination="pPG-h9-Siy" id="tOS-xL-gI4"/>
                         <outlet property="loginButton" destination="AFq-5p-BGf" id="Zu1-L3-WZO"/>
                         <outlet property="passwordTextField" destination="zj5-R7-cpt" id="TqF-2g-aON"/>
                         <outlet property="textFieldsStackView" destination="W1g-e7-cUh" id="QSR-l2-jMC"/>
+                        <outlet property="usernameTextField" destination="BVI-cj-Ehw" id="vwq-2C-kCU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8xL-sw-gED" sceneMemberID="firstResponder"/>
@@ -123,15 +145,10 @@
     </scenes>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="gradientBackground" width="414" height="896"/>
         <image name="newLogo" width="434" height="461"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

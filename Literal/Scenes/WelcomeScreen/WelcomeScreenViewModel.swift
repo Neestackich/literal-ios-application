@@ -1,6 +1,6 @@
 //
 //  WelcomeScreenViewModel.swift
-//  iTechBook
+//  Literal
 //
 //  Created by Neestackich on 3.12.20.
 //

@@ -1,6 +1,6 @@
 //
-//  LibraryRouter.swift
-//  iTechBook
+//  RequestListRouter.swift
+//  Literal
 //
 //  Created by Neestackich on 4.01.21.
 //
@@ -9,20 +9,20 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol LibraryRouterType: BaseRouterType {
+protocol RequestsListRouterType: BaseRouterType {
     func showAddBookScreen() -> Single<Void>
-    func showBookScreen(book: Book) -> Single<Void>
+    func showRequestScreen(book: Book) -> Single<Void>
 }
 
-final class LibraryRouter: BaseRouter, LibraryRouterType {
+final class RequestsListRouter: BaseRouter, RequestsListRouterType {
     func showAddBookScreen() -> Single<Void> {
         return .create { _ in
-            let addBookViewController = AddBookViewController
+            let addBookViewController = AddRequestViewController
                 .instantiateFromStoryboard()
             addBookViewController.viewModel =
-                AddBookViewModel(
+                AddRequestViewModel(
                     apiClient: DependencyResolver.shared.apiClient,
-                    router: AddBookRouter(rootViewController: addBookViewController))
+                    router: AddRequestRouter(rootViewController: addBookViewController))
 
             self.rootViewController?.present(
                 addBookViewController,
@@ -33,12 +33,12 @@ final class LibraryRouter: BaseRouter, LibraryRouterType {
         }
     }
 
-    func showBookScreen(book: Book) -> Single<Void> {
+    func showRequestScreen(book: Book) -> Single<Void> {
         return .create { _ in
-            let bookScreenaddBookViewController = BookScreenViewController.instantiateFromStoryboard()
+            let bookScreenaddBookViewController = RequestScreenViewController.instantiateFromStoryboard()
             bookScreenaddBookViewController.viewModel =
-                BookScreenViewModel(
-                    router: BookScreenRouter(
+                RequestScreenViewModel(
+                    router: RequestScreenRouter(
                     rootViewController: bookScreenaddBookViewController),
                     book: book)
 

@@ -1,6 +1,6 @@
 //
-//  LibraryTableViewCell.swift
-//  iTechBook
+//  RequestTableViewCell.swift
+//  Literal
 //
 //  Created by Neestackich on 8.12.20.
 //
@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class LibraryTableViewCell: UITableViewCell {
+final class RequestTableViewCell: UITableViewCell {
 
     // MARK: - Properties
 
